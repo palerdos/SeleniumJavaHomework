@@ -3,6 +3,8 @@ package com.saucedemo.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import static utilities.JavaScriptUtility.scrollToElementJS;
+
 public class OverviewCheckoutPage {
 
     WebDriver driver;
@@ -13,6 +15,7 @@ public class OverviewCheckoutPage {
     }
 
     public CompleteCheckoutPage clickFinishButton() {
+        scrollToElementJS(finishButton);
         driver.findElement(finishButton).click();
         return new CompleteCheckoutPage(driver);
     }

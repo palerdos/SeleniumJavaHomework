@@ -5,11 +5,14 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
+
+import static utilities.Utility.setUtilityDriver;
 
 public class BaseTest {
 
     private WebDriver driver;
-    private String url = "https://www.saucedemo.com/inventory.html";
+    private String SAUCEDEMO_URL = "https://www.saucedemo.com/inventory.html";
     protected LoginPage loginPage;
 
     @BeforeClass
@@ -17,9 +20,15 @@ public class BaseTest {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
-        driver.get(url);
-        loginPage = new LoginPage(driver);
     }
+
+    @BeforeMethod
+    public void loadApplication() {
+        driver.get(SAUCEDEMO_URL);
+        loginPage = new LoginPage(driver);
+        setUtilityDriver(driver);
+    }
+
 
     @AfterClass
     public void tearDown() {
