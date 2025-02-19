@@ -1,13 +1,11 @@
 package com.saucedemo.tests;
 
 import com.saucedemo.base.BaseTest;
-import com.saucedemo.pages.OverviewCheckoutPage;
-import com.saucedemo.pages.ProductsPage;
-import com.saucedemo.pages.YourCartPage;
-import com.saucedemo.pages.YourInformationCheckoutPage;
+import com.saucedemo.pages.*;
 import org.testng.annotations.Test;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 public class AutomatePurchaseProcessTest extends BaseTest {
 
@@ -27,6 +25,9 @@ public class AutomatePurchaseProcessTest extends BaseTest {
         yourInformationCheckoutPage.
                 fillYourInformation("Pál", "Erdős", "2500");
         OverviewCheckoutPage overviewCheckoutPage = yourInformationCheckoutPage.clickOnContinue();
+        CompleteCheckoutPage completeCheckoutPage = overviewCheckoutPage.clickFinishButton();
+        assertTrue(completeCheckoutPage.isThankYouMessageVisible(),
+                "Thank you message is not visible");
     }
 
 }
