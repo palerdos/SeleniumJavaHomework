@@ -3,6 +3,8 @@ package com.saucedemo.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import static utilities.WaitUtility.waitUntilElementVisible;
+
 
 public class YourInformationCheckoutPage {
 
@@ -11,9 +13,16 @@ public class YourInformationCheckoutPage {
     private By lastNameField = By.id("last-name");
     private By postalCodeField = By.id("postal-code");
     private By continueButton = By.id("continue");
+    private By yourInformationPageHeader = By.xpath
+            ("//span[@class=\"title\"][text()=\"Checkout: Your Information\"]");
 
     public YourInformationCheckoutPage(WebDriver driver) {
         this.driver = driver;
+    }
+
+    public boolean isYourInformationPageHeaderVisible() {
+        waitUntilElementVisible(5, yourInformationPageHeader);
+        return driver.findElement(yourInformationPageHeader).isDisplayed();
     }
 
     private void setFirstName(String firstName) {
