@@ -24,14 +24,14 @@ public class LoginPage {
         driver.findElement(passwordField).sendKeys(password);
     }
 
-    private void clickLoginButton() {
+    private ProductsPage clickLoginButton() {
         driver.findElement(loginButton).click();
+        return new ProductsPage(driver);
     }
 
     public ProductsPage logIn(String username, String password) {
         setUsername(username);
         setPassword(password);
-        clickLoginButton();
-        return new ProductsPage(driver);
+        return clickLoginButton();
     }
 }
