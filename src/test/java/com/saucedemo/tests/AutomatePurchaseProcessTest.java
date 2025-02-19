@@ -8,9 +8,7 @@ public class AutomatePurchaseProcessTest extends BaseTest {
 
     @Test
     public void testPurchaseProcess() {
-        loginPage.setUsername("performance_glitch_user");
-        loginPage.setPassword("secret_sauce");
-        loginPage.clickLoginButton();
+        loginPage.logIn("performance_glitch_user", "secret_sauce");
     }
 
 }

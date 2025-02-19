@@ -14,18 +14,24 @@ public class LoginPage {
         this.driver = driver;
     }
 
-    public void setUsername(String username) {
+    private void setUsername(String username) {
         driver.findElement(usernameField).clear();
         driver.findElement(usernameField).sendKeys(username);
     }
 
-    public void setPassword(String password) {
+    private void setPassword(String password) {
         driver.findElement(passwordField).clear();
         driver.findElement(passwordField).sendKeys(password);
     }
 
-    public ProductsPage clickLoginButton() {
+    private void clickLoginButton() {
         driver.findElement(loginButton).click();
+    }
+
+    public ProductsPage logIn(String username, String password) {
+        setUsername(username);
+        setPassword(password);
+        clickLoginButton();
         return new ProductsPage(driver);
     }
 }
