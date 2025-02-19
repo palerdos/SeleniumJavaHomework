@@ -29,7 +29,7 @@ public class LoginPage {
         return new ProductsPage(driver);
     }
 
-    public ProductsPage logIn(String username, String password) {
+    public ProductsPage login(String username, String password) {
         setUsername(username);
         setPassword(password);
         return clickLoginButton();

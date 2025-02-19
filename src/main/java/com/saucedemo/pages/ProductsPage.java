@@ -25,7 +25,7 @@ public class ProductsPage {
     }
 
     public YourCartPage clickOnCart() {
-        driver.findElement(shoppingCartLink).clear();
+        driver.findElement(shoppingCartLink).click();
         return new YourCartPage(driver);
     }
 
