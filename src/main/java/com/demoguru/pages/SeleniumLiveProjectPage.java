@@ -2,6 +2,7 @@ package com.demoguru.pages;
 
 import org.openqa.selenium.WebDriver;
 
+import static utilities.SwitchToUtility.switchToDefaultWindow;
 import static utilities.SwitchToUtility.switchToNewWindow;
 import static utilities.WaitUtility.waitUntilTitleIs;
 
@@ -18,5 +19,6 @@ public class SeleniumLiveProjectPage {
         switchToNewWindow();
         waitUntilTitleIs(5, tabTitle);
         driver.close();
+        switchToDefaultWindow();
     }
 }

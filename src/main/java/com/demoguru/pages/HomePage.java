@@ -7,12 +7,13 @@ import static utilities.JavaScriptUtility.scrollToElementJS;
 
 public class HomePage {
 
-    //https://demo.guru99.com/test/guru99home/
     WebDriver driver;
     private By seleniumDropDown = By.xpath
             (".//a[@class=\"dropdown-toggle\"][contains(text(), 'Selenium')]");
     private By imageIframeId = By.id("a077aa5e");
-    private By imageLink = By.linkText("http://www.guru99.com/live-selenium-project.html");
+    private By emailInputField = By.id("philadelphia-field-email");
+    private By submitEmailButton = By.id("philadelphia-field-submit");
+    private By tooltipDropdownItem = By.xpath("//a[contains(text(), 'Tooltip')]");
 
     public HomePage(WebDriver driver) {
         this.driver = driver;
@@ -24,5 +25,20 @@ public class HomePage {
         return new SeleniumLiveProjectPage(driver);
     }
 
+    public void fillEmailInputField(String email) {
+        driver.findElement(emailInputField).sendKeys(email);
+    }
 
+    public void submitEmail() {
+        driver.findElement(submitEmailButton).click();
+    }
+
+    public void clickSeleniumDropDown() {
+        driver.findElement(seleniumDropDown).click();
+    }
+
+    public ToolTipDemoPage clickTooltipDropdownItem () {
+        driver.findElement(tooltipDropdownItem).click();
+        return new ToolTipDemoPage(driver);
+    }
 }
