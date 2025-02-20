@@ -1,6 +1,6 @@
-package com.onlinehtmleditor.base;
+package com.demoguru.base;
 
-import com.onlinehtmleditor.pages.HomePage;
+import com.demoguru.pages.HomePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
@@ -12,7 +12,7 @@ import static utilities.Utility.setUtilityDriver;
 public class BaseTest {
 
     private WebDriver driver;
-    private String ONLINEHTMLEDITOR_URL = "https://onlinehtmleditor.dev";
+    private String DEMOGURU_URL = "https://demo.guru99.com/test/guru99home/";
     protected HomePage homePage;
 
     @BeforeClass
@@ -24,7 +24,7 @@ public class BaseTest {
 
     @BeforeMethod
     public void loadApplication() {
-        driver.get(ONLINEHTMLEDITOR_URL);
+        driver.get(DEMOGURU_URL);
         homePage = new HomePage(driver);
         setUtilityDriver(driver);
     }
@@ -32,7 +32,7 @@ public class BaseTest {
 
     @AfterClass
     public void tearDown() {
-        driver.quit();
+        //driver.quit();
     }
 
 }
