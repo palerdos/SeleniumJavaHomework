@@ -12,7 +12,7 @@ import static utilities.Utility.setUtilityDriver;
 public class BaseTest {
 
     private WebDriver driver;
-    private String SAUCEDEMO_URL = "https://www.saucedemo.com/inventory.html";
+    private String SAUCEDEMO_URL = "https://www.saucedemo.com";
     protected LoginPage loginPage;
 
     @BeforeClass
@@ -32,7 +32,7 @@ public class BaseTest {
 
     @AfterClass
     public void tearDown() {
-        //driver.quit();
+        driver.quit();
     }
 
 }

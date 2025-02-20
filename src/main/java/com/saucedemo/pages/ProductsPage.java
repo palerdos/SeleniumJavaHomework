@@ -3,6 +3,8 @@ package com.saucedemo.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
+import static utilities.GetUtility.getText;
+import static utilities.JavaScriptUtility.scrollToElementJS;
 import static utilities.WaitUtility.waitUntilElementVisible;
 
 public class ProductsPage {
@@ -15,6 +17,7 @@ public class ProductsPage {
     private By shoppingCartBadgeNumber = By.className("shopping_cart_badge");
     private By productsPageHeader = By.xpath
             ("//span[@class=\"title\"][text()=\"Products\"]");
+    private By footer = By.className("footer_copy");
 
     public ProductsPage(WebDriver driver) {
         this.driver = driver;
@@ -44,5 +47,10 @@ public class ProductsPage {
     public boolean isProductsPageHeaderVisible() {
         waitUntilElementVisible(5, productsPageHeader);
         return driver.findElement(productsPageHeader).isDisplayed();
+    }
+
+    public String getFooterText() {
+        scrollToElementJS(footer);
+        return getText(footer);
     }
 }
