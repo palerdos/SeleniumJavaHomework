@@ -12,4 +12,9 @@ public class WaitUtility extends Utility{
         wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
     }
 
+    public static void waitUntilTitleIs(int seconds, String title) {
+        WebDriverWait wait = new WebDriverWait(driver, seconds);
+        wait.until(ExpectedConditions.titleIs(title));
+    }
+
 }
